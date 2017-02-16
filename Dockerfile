@@ -1,3 +1,7 @@
-FROM armhf/alpine
-COPY qemu-arm /usr/bin/qemu-arm-static
-RUN [ "qemu-arm-static", "/bin/sh", "-c", "apk add --no-cache mono-dev" ]
+FROM resin/armv7hf-debian
+
+RUN [ "cross-build-start" ]
+
+RUN apt update && apt install mono-complete
+
+RUN [ "cross-build-end" ]
