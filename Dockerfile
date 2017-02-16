@@ -1,2 +1,2 @@
 FROM armhf/alpine
-RUN apk add --no-cache mono-dev
+RUN [ "qemu-arm-static", "/bin/sh", "-c", "apk add --no-cache mono-dev" ]
